@@ -1,5 +1,6 @@
 package com.springboot.controller;
 
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
@@ -7,15 +8,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Setter
 @Getter
 @NoArgsConstructor
 @ToString
+@Document
 public class Registration {
-
-	private Long id;
+	@Id
+	private long id;
 	@NotBlank(message = "username is required")
 //	@Size(min = 3,message = "Username must be at least 3 characters")
 	private String username;
